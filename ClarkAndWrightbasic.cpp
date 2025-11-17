@@ -53,7 +53,7 @@ bool cp(Saving a, Saving b){
 
 void ClarkAndWrightFunc(CVRP& cvrp){
     int n = cvrp.dimension;
-    double dis[n + 1][n + 1] = {0};
+    vector<vector<double>> dis(n + 1, vector<double>(n + 1));
     vector<vector<int>> route(n + 1);
     vector<Saving> saving;
     vector<int> nextnode(n + 1, 0), prenode(n + 1, 0), cycle(n + 1, 0);
