@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "vector": "cpp",
+        "tuple": "cpp",
+        "random": "cpp",
+        "cassert": "cpp",
+        "set": "cpp",
+        "fstream": "cpp",
+        "algorithm": "cpp",
+        "filesystem": "cpp"
+    }
+}
