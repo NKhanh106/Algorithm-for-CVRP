@@ -3,19 +3,37 @@ Dimension: 48
 Trucks: 7
 Capacity: 100
 Optimal: 1073
-GA Best Fitness: 1103.1826
-GA Vehicles Used: 7
-GA Generations Run: 150
-GA Last Improve Gen: 0
-GA Early Stopped: Yes
-GA Patience (gens): 150
-GA Elapsed (ms): 2977
 
-Route GA Final:
+==============GA===============
+Best Fitness: 1103.1826
+Vehicles Used: 7
+Generations Run: 150
+Last Improve Gen: 0
+Early Stopped: Yes
+Patience (gens): 150
+Elapsed (ms): 2951
+Route Final:
 Route #1: 1 --> 3 --> 11 --> 34 --> 29 --> 46 --> 41 --> 1
-Route #2: 1 --> 15 --> 18 --> 17 --> 48 --> 42 --> 1
+Route #2: 1 --> 7 --> 2 --> 6 --> 32 --> 44 --> 24 --> 1
+Route #3: 1 --> 13 --> 36 --> 45 --> 19 --> 1
+Route #4: 1 --> 23 --> 39 --> 26 --> 20 --> 38 --> 37 --> 33 --> 1
+Route #5: 1 --> 28 --> 16 --> 9 --> 40 --> 27 --> 21 --> 4 --> 8 --> 1
+Route #6: 1 --> 30 --> 22 --> 31 --> 47 --> 14 --> 25 --> 5 --> 12 --> 43 --> 10 --> 35 --> 1
+Route #7: 1 --> 42 --> 48 --> 17 --> 18 --> 15 --> 1
+
+==============ES===============
+Best Fitness: 1103.1826
+Vehicles Used: 7
+Generations Run: 120
+Last Improve Gen: 0
+Early Stopped: Yes
+Patience (gens): 120
+Elapsed (ms): 2610
+Route Final:
+Route #1: 1 --> 7 --> 2 --> 6 --> 32 --> 44 --> 24 --> 1
+Route #2: 1 --> 8 --> 4 --> 21 --> 27 --> 40 --> 9 --> 16 --> 28 --> 1
 Route #3: 1 --> 19 --> 45 --> 36 --> 13 --> 1
-Route #4: 1 --> 28 --> 16 --> 9 --> 40 --> 27 --> 21 --> 4 --> 8 --> 1
-Route #5: 1 --> 30 --> 22 --> 31 --> 47 --> 14 --> 25 --> 5 --> 12 --> 43 --> 10 --> 35 --> 1
-Route #6: 1 --> 33 --> 37 --> 38 --> 20 --> 26 --> 39 --> 23 --> 1
-Route #7: 1 --> 7 --> 2 --> 6 --> 32 --> 44 --> 24 --> 1
+Route #4: 1 --> 30 --> 22 --> 31 --> 47 --> 14 --> 25 --> 5 --> 12 --> 43 --> 10 --> 35 --> 1
+Route #5: 1 --> 33 --> 37 --> 38 --> 20 --> 26 --> 39 --> 23 --> 1
+Route #6: 1 --> 41 --> 46 --> 29 --> 34 --> 11 --> 3 --> 1
+Route #7: 1 --> 42 --> 48 --> 17 --> 18 --> 15 --> 1
