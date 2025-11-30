@@ -9,6 +9,10 @@
         "set": "cpp",
         "fstream": "cpp",
         "algorithm": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "sstream": "cpp",
+        "cmath": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp"
     }
 }

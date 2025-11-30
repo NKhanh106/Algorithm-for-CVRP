@@ -1,0 +1,13 @@
+Metric,GA,ES,EP
+Best Fitness (Avg),1070.18,1070.28,1071.14
+Best Fitness (Min),676.10,662.40,691.34
+Best Fitness (Max),1812.48,1812.86,1812.86
+Gap from Optimal (Avg %),2.71,2.72,2.81
+Gap from Optimal (Min %),0.64,0.21,0.47
+Gap from Optimal (Max %),5.95,5.95,5.95
+Time (Avg ms),3620.00,2841.00,3673.78
+Time (Min ms),1285.00,1129.00,1239.00
+Time (Max ms),9644.00,8556.00,9030.00
+Generations (Avg),179.33,135.48,188.74
+Generations (Min),150.00,120.00,150.00
+Generations (Max),381.00,400.00,328.00

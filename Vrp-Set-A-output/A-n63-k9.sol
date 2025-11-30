@@ -3,15 +3,54 @@ Dimension: 63
 Trucks: 9
 Capacity: 100
 Optimal: 1616
-GA Best Fitness: 1676.4133
-GA Vehicles Used: 9
-GA Generations Run: 151
-GA Last Improve Gen: 1
-GA Early Stopped: Yes
-GA Patience (gens): 150
-GA Elapsed (ms): 5198
 
-Route GA Final:
+==============GA===============
+Best Fitness: 1668.5927
+Vehicles Used: 9
+Generations Run: 189
+Last Improve Gen: 39
+Early Stopped: Yes
+Patience (gens): 150
+Elapsed (ms): 5524
+Route Final:
+Route #1: 1 --> 6 --> 46 --> 28 --> 60 --> 25 --> 9 --> 50 --> 14 --> 1
+Route #2: 1 --> 16 --> 54 --> 22 --> 23 --> 29 --> 13 --> 8 --> 1
+Route #3: 1 --> 17 --> 62 --> 43 --> 10 --> 42 --> 4 --> 20 --> 1
+Route #4: 1 --> 39 --> 32 --> 44 --> 47 --> 2 --> 19 --> 5 --> 48 --> 53 --> 1
+Route #5: 1 --> 26 --> 61 --> 55 --> 21 --> 27 --> 1
+Route #6: 1 --> 30 --> 31 --> 3 --> 35 --> 37 --> 49 --> 1
+Route #7: 1 --> 40 --> 24 --> 63 --> 58 --> 52 --> 36 --> 18 --> 1
+Route #8: 1 --> 56 --> 41 --> 15 --> 59 --> 33 --> 51 --> 38 --> 7 --> 11 --> 1
+Route #9: 1 --> 57 --> 45 --> 34 --> 12 --> 1
+
+==============ES===============
+Best Fitness: 1649.5533
+Vehicles Used: 9
+Generations Run: 400
+Last Improve Gen: 387
+Early Stopped: No
+Patience (gens): 120
+Elapsed (ms): 8556
+Route Final:
+Route #1: 1 --> 43 --> 10 --> 42 --> 4 --> 62 --> 8 --> 1
+Route #2: 1 --> 6 --> 46 --> 28 --> 60 --> 25 --> 9 --> 50 --> 14 --> 1
+Route #3: 1 --> 27 --> 26 --> 61 --> 55 --> 21 --> 1
+Route #4: 1 --> 16 --> 13 --> 7 --> 38 --> 18 --> 29 --> 1
+Route #5: 1 --> 23 --> 51 --> 15 --> 41 --> 59 --> 33 --> 56 --> 22 --> 1
+Route #6: 1 --> 20 --> 30 --> 31 --> 3 --> 35 --> 37 --> 49 --> 1
+Route #7: 1 --> 11 --> 40 --> 24 --> 53 --> 63 --> 58 --> 52 --> 36 --> 54 --> 1
+Route #8: 1 --> 39 --> 32 --> 44 --> 47 --> 2 --> 19 --> 5 --> 48 --> 17 --> 1
+Route #9: 1 --> 57 --> 45 --> 34 --> 12 --> 1
+
+==============EP===============
+Best Fitness: 1676.4133
+Vehicles Used: 9
+Generations Run: 150
+Last Improve Gen: 0
+Early Stopped: Yes
+Patience (gens): 150
+Elapsed (ms): 5231
+Route Final:
 Route #1: 1 --> 6 --> 46 --> 28 --> 60 --> 25 --> 9 --> 50 --> 14 --> 1
 Route #2: 1 --> 16 --> 54 --> 22 --> 23 --> 29 --> 13 --> 8 --> 1
 Route #3: 1 --> 17 --> 62 --> 43 --> 10 --> 42 --> 4 --> 20 --> 1

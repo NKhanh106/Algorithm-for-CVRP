@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <sstream>
 #include <tuple>
+#include <limits>
 
 using namespace std;
 
@@ -51,6 +52,22 @@ struct CVRP{
     int ga_patience_used = 0;
     bool ga_early_stopped = false;
     long long ga_elapsed_ms = 0;
+
+    double es_best_fitness = numeric_limits<double>::infinity();
+    vector<vector<int>> es_best_routes;
+    int es_generations_run = 0;
+    int es_last_improve_gen = 0;
+    int es_patience_used = 0;
+    bool es_early_stopped = false;
+    long long es_elapsed_ms = 0;
+
+    double ep_best_fitness = numeric_limits<double>::infinity();
+    vector<vector<int>> ep_best_routes;
+    int ep_generations_run = 0;
+    int ep_last_improve_gen = 0;
+    int ep_patience_used = 0;
+    bool ep_early_stopped = false;
+    long long ep_elapsed_ms = 0;
 };
 
 

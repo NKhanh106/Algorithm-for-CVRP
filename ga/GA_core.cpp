@@ -222,7 +222,7 @@ void GeneticAlgorithm(CVRP& cvrp, int population_size, int max_generations, int 
             ++stale_gens;
         }
 
-        cout << "Gen " << gen + 1 << ": Best Fitness = "
+        cout << "[GA]Gen " << gen + 1 << ": Best Fitness = "
              << fixed << setprecision(4) << population[0].fitness
              << " (Global Best: " << best_global_fitness << ")" << endl;
 

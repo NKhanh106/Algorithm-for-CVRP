@@ -117,20 +117,59 @@ void write_solution_file(const CVRP& ins, const string& output_folder) {
     outfile << "Capacity: " << ins.capacity << "\n";
     outfile << "Optimal: " << ins.optimal << "\n";
 
-    // --- Kết quả GA (Các trường ga_* đã được cập nhật trong GeneticAlgorithm) ---
-    outfile << "GA Best Fitness: " << ins.ga_best_fitness << "\n";
-    outfile << "GA Vehicles Used: " << ins.ga_best_routes.size() << "\n";
-    outfile << "GA Generations Run: " << ins.ga_generations_run << "\n";
-    outfile << "GA Last Improve Gen: " << ins.ga_last_improve_gen << "\n";
-    outfile << "GA Early Stopped: " << (ins.ga_early_stopped ? "Yes" : "No") << "\n";
-    outfile << "GA Patience (gens): " << ins.ga_patience_used << "\n";
-    outfile << "GA Elapsed (ms): " << ins.ga_elapsed_ms << "\n";
+    outfile << "\n==============GA===============\n";
+    outfile << "Best Fitness: " << ins.ga_best_fitness << "\n";
+    outfile << "Vehicles Used: " << ins.ga_best_routes.size() << "\n";
+    outfile << "Generations Run: " << ins.ga_generations_run << "\n";
+    outfile << "Last Improve Gen: " << ins.ga_last_improve_gen << "\n";
+    outfile << "Early Stopped: " << (ins.ga_early_stopped ? "Yes" : "No") << "\n";
+    outfile << "Patience (gens): " << ins.ga_patience_used << "\n";
+    outfile << "Elapsed (ms): " << ins.ga_elapsed_ms << "\n";
 
-    // --- Chi tiết Tuyến đường GA Tốt nhất ---
-    outfile << "\nRoute GA Final:\n";
+    outfile << "Route Final:\n";
     for (size_t j = 0; j < ins.ga_best_routes.size(); ++j) {
         outfile << "Route #" << j + 1 << ": ";
         const auto& r = ins.ga_best_routes[j];
+        if (!r.empty()) {
+            outfile << r[0];
+            for (size_t k = 1; k < r.size(); ++k) outfile << " --> " << r[k];
+        }
+        outfile << "\n";
+    }
+
+    outfile << "\n==============ES===============\n";
+    outfile << "Best Fitness: " << ins.es_best_fitness << "\n";
+    outfile << "Vehicles Used: " << ins.es_best_routes.size() << "\n";
+    outfile << "Generations Run: " << ins.es_generations_run << "\n";
+    outfile << "Last Improve Gen: " << ins.es_last_improve_gen << "\n";
+    outfile << "Early Stopped: " << (ins.es_early_stopped ? "Yes" : "No") << "\n";
+    outfile << "Patience (gens): " << ins.es_patience_used << "\n";
+    outfile << "Elapsed (ms): " << ins.es_elapsed_ms << "\n";
+
+    outfile << "Route Final:\n";
+    for (size_t j = 0; j < ins.es_best_routes.size(); ++j) {
+        outfile << "Route #" << j + 1 << ": ";
+        const auto& r = ins.es_best_routes[j];
+        if (!r.empty()) {
+            outfile << r[0];
+            for (size_t k = 1; k < r.size(); ++k) outfile << " --> " << r[k];
+        }
+        outfile << "\n";
+    }
+
+    outfile << "\n==============EP===============\n";
+    outfile << "Best Fitness: " << ins.ep_best_fitness << "\n";
+    outfile << "Vehicles Used: " << ins.ep_best_routes.size() << "\n";
+    outfile << "Generations Run: " << ins.ep_generations_run << "\n";
+    outfile << "Last Improve Gen: " << ins.ep_last_improve_gen << "\n";
+    outfile << "Early Stopped: " << (ins.ep_early_stopped ? "Yes" : "No") << "\n";
+    outfile << "Patience (gens): " << ins.ep_patience_used << "\n";
+    outfile << "Elapsed (ms): " << ins.ep_elapsed_ms << "\n";
+
+    outfile << "Route Final:\n";
+    for (size_t j = 0; j < ins.ep_best_routes.size(); ++j) {
+        outfile << "Route #" << j + 1 << ": ";
+        const auto& r = ins.ep_best_routes[j];
         if (!r.empty()) {
             outfile << r[0];
             for (size_t k = 1; k < r.size(); ++k) outfile << " --> " << r[k];
