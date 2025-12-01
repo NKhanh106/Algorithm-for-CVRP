@@ -177,6 +177,26 @@ void write_solution_file(const CVRP& ins, const string& output_folder) {
         outfile << "\n";
     }
 
+    outfile << "\n==============ACO===============\n";
+    outfile << "Best Fitness: " << ins.aco_best_fitness << "\n";
+    outfile << "Vehicles Used: " << ins.aco_best_routes.size() << "\n";
+    outfile << "Iterations Run: " << ins.aco_iterations_run << "\n";
+    outfile << "Last Improve Iter: " << ins.aco_last_improve_iter << "\n";
+    outfile << "Early Stopped: " << (ins.aco_early_stopped ? "Yes" : "No") << "\n";
+    outfile << "Patience (iters): " << ins.aco_patience_used << "\n";
+    outfile << "Elapsed (ms): " << ins.aco_elapsed_ms << "\n";
+
+    outfile << "Route Final:\n";
+    for (size_t j = 0; j < ins.aco_best_routes.size(); ++j) {
+        outfile << "Route #" << j + 1 << ": ";
+        const auto& r = ins.aco_best_routes[j];
+        if (!r.empty()) {
+            outfile << r[0];
+            for (size_t k = 1; k < r.size(); ++k) outfile << " --> " << r[k];
+        }
+        outfile << "\n";
+    }
+
     outfile.close();
     cout << "Wrote: " << filename << "\n";
 }

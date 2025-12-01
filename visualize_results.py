@@ -24,6 +24,9 @@ def parse_sol_file(filepath):
         'ep_fitness': None,
         'ep_time': None,
         'ep_gens': None,
+        'aco_fitness': None,
+        'aco_time': None,
+        'aco_iters': None,
     }
     
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -69,7 +72,7 @@ def parse_sol_file(filepath):
             data['es_gens'] = int(gens_match.group(1))
     
     # Parse EP section
-    ep_section = re.search(r'==============EP===============(.*?)(?:Route Final:|$)', content, re.DOTALL)
+    ep_section = re.search(r'==============EP===============(.*?)==============ACO', content, re.DOTALL)
     if ep_section:
         ep_text = ep_section.group(1)
         fitness_match = re.search(r'Best Fitness: ([\d.]+)', ep_text)
@@ -82,6 +85,21 @@ def parse_sol_file(filepath):
             data['ep_time'] = int(time_match.group(1))
         if gens_match:
             data['ep_gens'] = int(gens_match.group(1))
+    
+    # Parse ACO section
+    aco_section = re.search(r'==============ACO===============(.*?)(?:Route Final:|$)', content, re.DOTALL)
+    if aco_section:
+        aco_text = aco_section.group(1)
+        fitness_match = re.search(r'Best Fitness: ([\d.]+)', aco_text)
+        time_match = re.search(r'Elapsed \(ms\): (\d+)', aco_text)
+        iters_match = re.search(r'Iterations Run: (\d+)', aco_text)
+        
+        if fitness_match:
+            data['aco_fitness'] = float(fitness_match.group(1))
+        if time_match:
+            data['aco_time'] = int(time_match.group(1))
+        if iters_match:
+            data['aco_iters'] = int(iters_match.group(1))
     
     return data
 
@@ -111,15 +129,17 @@ def plot_comparison(df, output_dir='plots'):
     df['ga_gap'] = df.apply(lambda x: calculate_gap(x['ga_fitness'], x['optimal']), axis=1)
     df['es_gap'] = df.apply(lambda x: calculate_gap(x['es_fitness'], x['optimal']), axis=1)
     df['ep_gap'] = df.apply(lambda x: calculate_gap(x['ep_fitness'], x['optimal']), axis=1)
+    df['aco_gap'] = df.apply(lambda x: calculate_gap(x['aco_fitness'], x['optimal']), axis=1)
     
     # 1. Bar chart: So sánh Fitness
-    plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(16, 6))
     x = np.arange(len(df))
-    width = 0.25
+    width = 0.2
     
-    plt.bar(x - width, df['ga_fitness'], width, label='GA', alpha=0.8, color='#3498db')
-    plt.bar(x, df['es_fitness'], width, label='ES', alpha=0.8, color='#e74c3c')
-    plt.bar(x + width, df['ep_fitness'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x - 1.5*width, df['ga_fitness'], width, label='GA', alpha=0.8, color='#3498db')
+    plt.bar(x - 0.5*width, df['es_fitness'], width, label='ES', alpha=0.8, color='#e74c3c')
+    plt.bar(x + 0.5*width, df['ep_fitness'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x + 1.5*width, df['aco_fitness'], width, label='ACO', alpha=0.8, color='#f39c12')
     
     # Vẽ đường optimal
     plt.plot(x, df['optimal'], 'k--', linewidth=2, label='Optimal', marker='o', markersize=6)
@@ -136,13 +156,14 @@ def plot_comparison(df, output_dir='plots'):
     plt.close()
     
     # 2. Bar chart: Gap với Optimal (%)
-    plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(16, 6))
     x = np.arange(len(df))
-    width = 0.25
+    width = 0.2
     
-    plt.bar(x - width, df['ga_gap'], width, label='GA', alpha=0.8, color='#3498db')
-    plt.bar(x, df['es_gap'], width, label='ES', alpha=0.8, color='#e74c3c')
-    plt.bar(x + width, df['ep_gap'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x - 1.5*width, df['ga_gap'], width, label='GA', alpha=0.8, color='#3498db')
+    plt.bar(x - 0.5*width, df['es_gap'], width, label='ES', alpha=0.8, color='#e74c3c')
+    plt.bar(x + 0.5*width, df['ep_gap'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x + 1.5*width, df['aco_gap'], width, label='ACO', alpha=0.8, color='#f39c12')
     
     plt.xlabel('Instance', fontsize=12, fontweight='bold')
     plt.ylabel('Gap from Optimal (%)', fontsize=12, fontweight='bold')
@@ -157,13 +178,14 @@ def plot_comparison(df, output_dir='plots'):
     plt.close()
     
     # 3. Bar chart: Thời gian chạy
-    plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(16, 6))
     x = np.arange(len(df))
-    width = 0.25
+    width = 0.2
     
-    plt.bar(x - width, df['ga_time'], width, label='GA', alpha=0.8, color='#3498db')
-    plt.bar(x, df['es_time'], width, label='ES', alpha=0.8, color='#e74c3c')
-    plt.bar(x + width, df['ep_time'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x - 1.5*width, df['ga_time'], width, label='GA', alpha=0.8, color='#3498db')
+    plt.bar(x - 0.5*width, df['es_time'], width, label='ES', alpha=0.8, color='#e74c3c')
+    plt.bar(x + 0.5*width, df['ep_time'], width, label='EP', alpha=0.8, color='#2ecc71')
+    plt.bar(x + 1.5*width, df['aco_time'], width, label='ACO', alpha=0.8, color='#f39c12')
     
     plt.xlabel('Instance', fontsize=12, fontweight='bold')
     plt.ylabel('Execution Time (ms)', fontsize=12, fontweight='bold')
@@ -181,6 +203,7 @@ def plot_comparison(df, output_dir='plots'):
     plt.scatter(df['ga_time'], df['ga_fitness'], s=100, alpha=0.6, label='GA', color='#3498db', marker='o')
     plt.scatter(df['es_time'], df['es_fitness'], s=100, alpha=0.6, label='ES', color='#e74c3c', marker='s')
     plt.scatter(df['ep_time'], df['ep_fitness'], s=100, alpha=0.6, label='EP', color='#2ecc71', marker='^')
+    plt.scatter(df['aco_time'], df['aco_fitness'], s=100, alpha=0.6, label='ACO', color='#f39c12', marker='D')
     
     plt.xlabel('Execution Time (ms)', fontsize=12, fontweight='bold')
     plt.ylabel('Best Fitness', fontsize=12, fontweight='bold')
@@ -197,7 +220,7 @@ def plot_comparison(df, output_dir='plots'):
         'Metric': ['Best Fitness (Avg)', 'Best Fitness (Min)', 'Best Fitness (Max)',
                    'Gap from Optimal (Avg %)', 'Gap from Optimal (Min %)', 'Gap from Optimal (Max %)',
                    'Time (Avg ms)', 'Time (Min ms)', 'Time (Max ms)',
-                   'Generations (Avg)', 'Generations (Min)', 'Generations (Max)'],
+                   'Iterations/Generations (Avg)', 'Iterations/Generations (Min)', 'Iterations/Generations (Max)'],
         'GA': [
             df['ga_fitness'].mean(),
             df['ga_fitness'].min(),
@@ -239,6 +262,20 @@ def plot_comparison(df, output_dir='plots'):
             df['ep_gens'].mean(),
             df['ep_gens'].min(),
             df['ep_gens'].max(),
+        ],
+        'ACO': [
+            df['aco_fitness'].mean(),
+            df['aco_fitness'].min(),
+            df['aco_fitness'].max(),
+            df['aco_gap'].mean(),
+            df['aco_gap'].min(),
+            df['aco_gap'].max(),
+            df['aco_time'].mean(),
+            df['aco_time'].min(),
+            df['aco_time'].max(),
+            df['aco_iters'].mean(),
+            df['aco_iters'].min(),
+            df['aco_iters'].max(),
         ]
     }
     
@@ -248,13 +285,13 @@ def plot_comparison(df, output_dir='plots'):
     
     # 6. Heatmap: Gap từ Optimal
     plt.figure(figsize=(12, max(8, len(df) * 0.4)))
-    gap_matrix = df[['ga_gap', 'es_gap', 'ep_gap']].values
+    gap_matrix = df[['ga_gap', 'es_gap', 'ep_gap', 'aco_gap']].values
     gap_matrix = gap_matrix.T  # Transpose để có methods là rows
     
     im = plt.imshow(gap_matrix, aspect='auto', cmap='RdYlGn_r', interpolation='nearest')
     plt.colorbar(im, label='Gap from Optimal (%)')
     
-    plt.yticks([0, 1, 2], ['GA', 'ES', 'EP'])
+    plt.yticks([0, 1, 2, 3], ['GA', 'ES', 'EP', 'ACO'])
     plt.xticks(range(len(df)), df['name'], rotation=45, ha='right')
     plt.xlabel('Instance', fontsize=12, fontweight='bold')
     plt.ylabel('Algorithm', fontsize=12, fontweight='bold')
@@ -273,10 +310,10 @@ def plot_comparison(df, output_dir='plots'):
     
     # 7. Box plot: Phân bố Gap
     plt.figure(figsize=(10, 6))
-    gap_data = [df['ga_gap'].dropna(), df['es_gap'].dropna(), df['ep_gap'].dropna()]
-    bp = plt.boxplot(gap_data, labels=['GA', 'ES', 'EP'], patch_artist=True)
+    gap_data = [df['ga_gap'].dropna(), df['es_gap'].dropna(), df['ep_gap'].dropna(), df['aco_gap'].dropna()]
+    bp = plt.boxplot(gap_data, labels=['GA', 'ES', 'EP', 'ACO'], patch_artist=True)
     
-    colors = ['#3498db', '#e74c3c', '#2ecc71']
+    colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12']
     for patch, color in zip(bp['boxes'], colors):
         patch.set_facecolor(color)
         patch.set_alpha(0.7)

@@ -7,11 +7,11 @@ Optimal: 914
 ==============GA===============
 Best Fitness: 923.5521
 Vehicles Used: 7
-Generations Run: 150
+Generations Run: 200
 Last Improve Gen: 0
 Early Stopped: Yes
-Patience (gens): 150
-Elapsed (ms): 2702
+Patience (gens): 200
+Elapsed (ms): 4676
 Route Final:
 Route #1: 1 --> 9 --> 34 --> 43 --> 17 --> 25 --> 16 --> 20 --> 1
 Route #2: 1 --> 10 --> 18 --> 46 --> 7 --> 44 --> 27 --> 15 --> 1
@@ -24,11 +24,11 @@ Route #7: 1 --> 39 --> 5 --> 38 --> 3 --> 31 --> 14 --> 1
 ==============ES===============
 Best Fitness: 923.5521
 Vehicles Used: 7
-Generations Run: 120
+Generations Run: 150
 Last Improve Gen: 0
 Early Stopped: Yes
-Patience (gens): 120
-Elapsed (ms): 2278
+Patience (gens): 150
+Elapsed (ms): 3915
 Route Final:
 Route #1: 1 --> 9 --> 34 --> 43 --> 17 --> 25 --> 16 --> 20 --> 1
 Route #2: 1 --> 10 --> 18 --> 46 --> 7 --> 44 --> 27 --> 15 --> 1
@@ -41,11 +41,11 @@ Route #7: 1 --> 39 --> 5 --> 38 --> 3 --> 31 --> 14 --> 1
 ==============EP===============
 Best Fitness: 923.5521
 Vehicles Used: 7
-Generations Run: 150
+Generations Run: 180
 Last Improve Gen: 0
 Early Stopped: Yes
-Patience (gens): 150
-Elapsed (ms): 2697
+Patience (gens): 180
+Elapsed (ms): 3938
 Route Final:
 Route #1: 1 --> 9 --> 34 --> 43 --> 17 --> 25 --> 16 --> 20 --> 1
 Route #2: 1 --> 10 --> 18 --> 46 --> 7 --> 44 --> 27 --> 15 --> 1
@@ -54,3 +54,20 @@ Route #4: 1 --> 24 --> 1
 Route #5: 1 --> 29 --> 42 --> 21 --> 28 --> 2 --> 41 --> 35 --> 32 --> 30 --> 22 --> 1
 Route #6: 1 --> 37 --> 40 --> 13 --> 8 --> 23 --> 33 --> 1
 Route #7: 1 --> 39 --> 5 --> 38 --> 3 --> 31 --> 14 --> 1
+
+==============ACO===============
+Best Fitness: 994.9202
+Vehicles Used: 7
+Iterations Run: 115
+Last Improve Iter: 35
+Early Stopped: Yes
+Patience (iters): 80
+Elapsed (ms): 321
+Route Final:
+Route #1: 1 --> 24 --> 7 --> 14 --> 27 --> 44 --> 15 --> 1
+Route #2: 1 --> 10 --> 46 --> 39 --> 5 --> 31 --> 3 --> 38 --> 4 --> 1
+Route #3: 1 --> 29 --> 20 --> 16 --> 25 --> 17 --> 43 --> 34 --> 1
+Route #4: 1 --> 21 --> 28 --> 2 --> 41 --> 35 --> 32 --> 30 --> 42 --> 22 --> 1
+Route #5: 1 --> 37 --> 40 --> 45 --> 8 --> 23 --> 33 --> 6 --> 1
+Route #6: 1 --> 12 --> 9 --> 13 --> 36 --> 19 --> 26 --> 11 --> 1
+Route #7: 1 --> 18 --> 1

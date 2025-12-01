@@ -1,13 +1,13 @@
-Metric,GA,ES,EP
-Best Fitness (Avg),1070.18,1070.28,1071.14
-Best Fitness (Min),676.10,662.40,691.34
-Best Fitness (Max),1812.48,1812.86,1812.86
-Gap from Optimal (Avg %),2.71,2.72,2.81
-Gap from Optimal (Min %),0.64,0.21,0.47
-Gap from Optimal (Max %),5.95,5.95,5.95
-Time (Avg ms),3620.00,2841.00,3673.78
-Time (Min ms),1285.00,1129.00,1239.00
-Time (Max ms),9644.00,8556.00,9030.00
-Generations (Avg),179.33,135.48,188.74
-Generations (Min),150.00,120.00,150.00
-Generations (Max),381.00,400.00,328.00
+Metric,GA,ES,EP,ACO
+Best Fitness (Avg),1069.53,1071.39,1069.89,1094.57
+Best Fitness (Min),683.14,671.59,676.10,687.18
+Best Fitness (Max),1805.15,1812.86,1812.86,1893.67
+Gap from Optimal (Avg %),2.67,2.80,2.67,4.88
+Gap from Optimal (Min %),0.64,0.64,0.64,0.81
+Gap from Optimal (Max %),5.95,5.95,5.95,8.85
+Time (Avg ms),7044.78,5301.96,5372.00,411.96
+Time (Min ms),1641.00,1732.00,1369.00,133.00
+Time (Max ms),25189.00,13838.00,14033.00,1241.00
+Iterations/Generations (Avg),256.15,178.41,237.26,124.96
+Iterations/Generations (Min),160.00,128.00,149.00,76.00
+Iterations/Generations (Max),512.00,396.00,700.00,268.00

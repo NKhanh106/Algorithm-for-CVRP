@@ -68,6 +68,14 @@ struct CVRP{
     int ep_patience_used = 0;
     bool ep_early_stopped = false;
     long long ep_elapsed_ms = 0;
+
+    double aco_best_fitness = numeric_limits<double>::infinity();
+    vector<vector<int>> aco_best_routes;
+    int aco_iterations_run = 0;
+    int aco_last_improve_iter = 0;
+    int aco_patience_used = 0;
+    bool aco_early_stopped = false;
+    long long aco_elapsed_ms = 0;
 };
 
 
